@@ -24,6 +24,7 @@ networksetup -setdnsservers "$network" ${mydns_array[*]}
 src_md5=$(cat $dnscfg | md5)
 dsc_md5=$(networksetup -getdnsservers "$network" | md5)
 
+mymail="xxxx"
 if [[ $src_md5 != $dsc_md5 ]];then
-	echo "$localtime\tdns add failed, please check" | mail -s "【MAC-DNS配置通知】" $yourmail
+	echo "$localtime\tdns add failed, please check" | mail -s "【MAC-DNS配置通知】" $mymail
 fi
